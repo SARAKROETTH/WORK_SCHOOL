@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">WORK_SCHOOL</string>
+    <!--  for menu item list -->
+    <string name="title_home_item_menu">Home</string>
+    <string name="title_List_item_menu">List Expenes</string>
+    <string name="title_setting_item_menu">Setting</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Option Item menu  -->
+    <string name="sign_out_item_menu">Sign Out</string>
+    <string name="new_task_item_menu">New Task</string>
+
 </resources>
