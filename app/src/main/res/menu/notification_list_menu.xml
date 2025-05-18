@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/nav_tasks"
+        android:id="@+id/nav_home"
         android:enabled="true"
         android:icon="@drawable/ic_home_task"
         android:title="@string/title_home_item_menu"/>
     <item
-        android:id="@+id/nav_categories"
+        android:id="@+id/nav_expenseList"
         android:enabled="true"
         android:icon="@drawable/ic_list_item"
         android:title="@string/title_List_item_menu"/>

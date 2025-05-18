@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "900094548050",
+    "project_id": "lap5mad",
+    "storage_bucket": "lap5mad.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:900094548050:android:871f904ebdcc4e8cbfa78b",
+        "android_client_info": {
+          "package_name": "com.example.lap5_week5"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlycBKRNfEBWg-qWp9SK3ErRoNEvqGbCM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:900094548050:android:ddff940c2475b278bfa78b",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlycBKRNfEBWg-qWp9SK3ErRoNEvqGbCM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:900094548050:android:f7904b0cfa24ed3dbfa78b",
+        "android_client_info": {
+          "package_name": "com.example.work_school"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlycBKRNfEBWg-qWp9SK3ErRoNEvqGbCM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
