@@ -12,12 +12,34 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.work_school.databinding.ActivityWelcomeBinding;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class WelcomeActivity extends AppCompatActivity {
 
     private ActivityWelcomeBinding binding;
     LottieAnimationView lottieAnimationView;
     private boolean isPlaying = false;
+
+    private FirebaseAuth mAuth;
+
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
+        if(currentUser != null){
+            reload();
+        }
+
+    }
+    private void reload() {
+        Intent MainIntent = new Intent(this,MainActivity.class);
+        startActivity(MainIntent);
+        finish();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +53,7 @@ public class WelcomeActivity extends AppCompatActivity {
             return insets;
         });
 
+        mAuth = FirebaseAuth.getInstance();
 
         binding.startButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,7 +68,6 @@ public class WelcomeActivity extends AppCompatActivity {
         Intent intent = new Intent(this, LogInActivity.class);
         startActivity(intent);
     }
-
 
     @Override
     protected void onPause() {
