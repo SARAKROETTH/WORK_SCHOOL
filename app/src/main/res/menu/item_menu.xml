@@ -6,4 +6,9 @@
         android:icon="@android:drawable/ic_menu_send"
         android:title="@string/sign_out_item_menu"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/AddNewExpense"
+        android:title="New Expense"
+        app:showAsAction="always"
+        />
 </menu>
