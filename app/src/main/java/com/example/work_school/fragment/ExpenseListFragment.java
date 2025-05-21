@@ -93,8 +93,7 @@ public class ExpenseListFragment extends Fragment {
     private void loadTasks(boolean reset) {
         isLoading = true;
         showProgressBar();
-        String currentUserId = "1249588e-aea4-4a9e-930d-0778c8669364";
-//        String currentUserId = mAuth.getCurrentUser().getUid();
+        String currentUserId = mAuth.getCurrentUser().getUid();
         repository.getExpenses(currentPage, currentUserId, new IApiCallback<List<Expense>>() {
 
             @Override

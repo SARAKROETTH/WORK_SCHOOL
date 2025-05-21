@@ -11,4 +11,12 @@
     <string name="sign_out_item_menu">Sign Out</string>
     <string name="new_task_item_menu">New Task</string>
 
+    <array name="item_spiner">
+        <item>Drink</item>
+        <item>Food</item>
+        <item>Skin Care</item>
+        <item>clothes </item>
+        <item>Trip</item>
+    </array>
+
 </resources>
