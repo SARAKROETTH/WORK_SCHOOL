@@ -1,13 +1,18 @@
 package com.example.work_school.adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.work_school.DetailExpenseActivity;
 import com.example.work_school.databinding.ItemExpenseBinding;
 import com.example.work_school.model.Expense;
+import com.example.work_school.repository.ExpenseRepository;
+import com.example.work_school.repository.IApiCallback;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -19,7 +24,18 @@ public class ExpenseAdapter extends RecyclerView.Adapter<ExpenseAdapter.ExpenseV
 
     private List<Expense> expenses;
 
+    private OnExpenseDeleteListener deleteListener;
 
+
+    private ExpenseRepository expenseRepository;
+
+    public interface OnExpenseDeleteListener {
+        void onExpenseDelete(Expense expense);
+    }
+
+    public void setOnTaskDeleteListener(OnExpenseDeleteListener listener) {
+        this.deleteListener = listener;
+    }
     public ExpenseAdapter(){
         this.expenses = new ArrayList<>();
     }
@@ -41,6 +57,20 @@ public class ExpenseAdapter extends RecyclerView.Adapter<ExpenseAdapter.ExpenseV
         holder.binding.showCurrency.setText(expense.getCurrency());
         holder.binding.showRemark.setText(expense.getRemark());
         holder.binding.showDate.setText(formattedDate);
+
+        holder.binding.itemContainer.setOnClickListener(
+                v -> {
+                    Intent intent = new Intent(holder.itemView.getContext(), DetailExpenseActivity.class);
+                    intent.putExtra("expenseId", expense.getId());
+                    intent.putExtra("Amounts", Integer.toString(expense.getAmount()));
+                    intent.putExtra("Currencys", expense.getCurrency());
+                    intent.putExtra("expenseCategory", expense.getCategory());
+                    intent.putExtra("Remark", expense.getRemark());
+                    intent.putExtra("CreatedDate", formattedDate);
+                    holder.itemView.getContext().startActivity(intent);
+                }
+        );
+
     }
 
     private String formatDate(Date createdDate) {
@@ -51,6 +81,17 @@ public class ExpenseAdapter extends RecyclerView.Adapter<ExpenseAdapter.ExpenseV
     @Override
     public int getItemCount() {
         return expenses.size();
+    }
+
+    public void removeExpense(int position){
+
+        if (position >= 0 && position < expenses.size()){
+           Expense removedExpense = expenses.remove(position);
+            notifyItemRemoved(position);
+            if (deleteListener != null) {
+                deleteListener.onExpenseDelete(removedExpense);
+            }
+        }
     }
 
     public void setExpenses(List<Expense> newExpenses){

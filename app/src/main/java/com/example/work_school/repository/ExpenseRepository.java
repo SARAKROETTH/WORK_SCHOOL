@@ -57,6 +57,25 @@ public class ExpenseRepository {
             }
         });
     }
+    public void deleteExpense(String expenseId , final IApiCallback<String> callback){
+        expenseService.deleteExpense(expenseId).enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if (response.isSuccessful()) {
+                    callback.onSuccess("Expense deleted successfully");
+                } else {
+                    callback.onError(getErrorMessage(response));
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable throwable) {
+                callback.onError("Network error: " + throwable.getMessage());
+            }
+        });
+
+
+    }
 
     private String getErrorMessage(Response<?> response) {
         try {
