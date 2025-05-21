@@ -53,7 +53,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:layout_marginStart="1.3in">
+                    android:layout_marginStart="1in">
 
                     <TextView
                         android:id="@+id/showCurrency"
@@ -122,7 +122,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:layout_marginStart="1.6in"
+
+                android:layout_marginStart="1.2in"
                 android:textSize="10sp"
                 android:textColor="#89000000"
                 android:text="Date"/>

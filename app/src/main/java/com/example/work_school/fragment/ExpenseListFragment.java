@@ -45,6 +45,19 @@ public class ExpenseListFragment extends Fragment {
         // Required empty public constructor
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        binding = null;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        currentPage = 1;
+        loadTasks(true);
+    }
+
 
 
 
@@ -55,9 +68,11 @@ public class ExpenseListFragment extends Fragment {
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         binding.itemContainer.setLayoutManager(layoutManager);
+        repository = new ExpenseRepository();
         expenseAdapter = new ExpenseAdapter();
         binding.itemContainer.setAdapter(expenseAdapter);
-        repository = new ExpenseRepository();
+
+
         mAuth = FirebaseAuth.getInstance();
 
         binding.itemContainer.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -72,14 +87,14 @@ public class ExpenseListFragment extends Fragment {
                 }
             }
         });
-
         return binding.getRoot();
     }
 
     private void loadTasks(boolean reset) {
         isLoading = true;
         showProgressBar();
-        String currentUserId = mAuth.getCurrentUser().getUid();
+        String currentUserId = "1249588e-aea4-4a9e-930d-0778c8669364";
+//        String currentUserId = mAuth.getCurrentUser().getUid();
         repository.getExpenses(currentPage, currentUserId, new IApiCallback<List<Expense>>() {
 
             @Override

@@ -9,8 +9,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.work_school.databinding.ItemExpenseBinding;
 import com.example.work_school.model.Expense;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.concurrent.Phaser;
 
 public class ExpenseAdapter extends RecyclerView.Adapter<ExpenseAdapter.ExpenseViewHolder> {
 
@@ -32,11 +35,17 @@ public class ExpenseAdapter extends RecyclerView.Adapter<ExpenseAdapter.ExpenseV
     @Override
     public void onBindViewHolder(@NonNull ExpenseViewHolder holder, int position) {
         Expense expense = expenses.get(position);
+        String formattedDate = formatDate(expense.getCreatedDate());
         holder.binding.showCategory.setText(expense.getCategory());
-        holder.binding.showAmount.setText(expense.getAmount());
+        holder.binding.showAmount.setText("- "+String.valueOf(expense.getAmount()));
         holder.binding.showCurrency.setText(expense.getCurrency());
         holder.binding.showRemark.setText(expense.getRemark());
-        holder.binding.showDate.setText(expense.getCreatedDate().toString());
+        holder.binding.showDate.setText(formattedDate);
+    }
+
+    private String formatDate(Date createdDate) {
+       SimpleDateFormat desiredFormat = new SimpleDateFormat("MM/yy/dd");
+       return desiredFormat.format(createdDate);
     }
 
     @Override
@@ -48,7 +57,6 @@ public class ExpenseAdapter extends RecyclerView.Adapter<ExpenseAdapter.ExpenseV
         expenses.clear();
         expenses.addAll(newExpenses);
         notifyDataSetChanged();
-
     }
 
     public void addExpenses(List<Expense> newExpenses){
