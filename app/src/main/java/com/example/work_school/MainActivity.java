@@ -18,7 +18,7 @@ import com.example.work_school.fragment.HomeFragment;
 import com.example.work_school.fragment.SettingFragment;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
     private ActivityMainBinding binding;
 
     private FirebaseAuth mAuth;

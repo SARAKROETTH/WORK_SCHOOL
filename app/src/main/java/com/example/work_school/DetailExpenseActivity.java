@@ -13,7 +13,7 @@ import com.example.work_school.databinding.ActivityDetailExpenseBinding;
 
 import java.text.SimpleDateFormat;
 
-public class DetailExpenseActivity extends AppCompatActivity {
+public class DetailExpenseActivity extends BaseActivity {
 
     private ActivityDetailExpenseBinding binding;
 

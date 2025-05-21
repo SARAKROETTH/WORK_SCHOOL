@@ -33,7 +33,7 @@ import java.util.Calendar;
 import java.util.Locale;
 import java.util.concurrent.Phaser;
 
-public class AddNewExpenseActivity extends AppCompatActivity {
+public class AddNewExpenseActivity extends BaseActivity {
 
     private ActivityAddNewExpenseBinding binding ;
 

@@ -15,7 +15,7 @@ import com.example.work_school.databinding.ActivityWelcomeBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class WelcomeActivity extends AppCompatActivity {
+public class WelcomeActivity extends BaseActivity {
 
     private ActivityWelcomeBinding binding;
     LottieAnimationView lottieAnimationView;
