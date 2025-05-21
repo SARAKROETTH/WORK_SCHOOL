@@ -15,7 +15,7 @@ public class RetroClient {
 
     private static String baseUrl = "https://expense-tracker-db-kbxp.onrender.com/";
 
-    private static String dbName = "d9333d1d-2b37-4e97-ae26-064a275cb576";
+    private static String dbName = "c277ea09-d909-4b51-879e-190af4a0d055";
 
     public static void setBaseUrl(String url) {
         baseUrl = url;
@@ -30,6 +30,7 @@ public class RetroClient {
 
     public static Retrofit getClient(){
         if(retrofit == null){
+
             HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
             loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 

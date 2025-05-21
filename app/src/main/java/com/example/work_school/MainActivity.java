@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        LoadFragment(new HomeFragment());
+        LoadFragment(new ExpenseListFragment());
 
         setSupportActionBar(binding.topAppBar);
         getSupportActionBar().setTitle("");
@@ -69,9 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
         binding.bottomNavigation.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();
-            if (itemId == R.id.nav_home) {
-                LoadFragment(new HomeFragment());
-            } else if (itemId == R.id.nav_expenseList) {
+            if (itemId == R.id.nav_expenseList) {
                 LoadFragment(new ExpenseListFragment());
             }else {
                 LoadFragment(new SettingFragment());

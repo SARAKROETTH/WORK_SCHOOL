@@ -4,6 +4,7 @@ import static com.example.work_school.util.DateConvertor.convertToDate;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Adapter;
@@ -19,6 +20,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.work_school.databinding.ActivityAddNewExpenseBinding;
+import com.example.work_school.fragment.HomeFragment;
 import com.example.work_school.model.Expense;
 import com.example.work_school.repository.ExpenseRepository;
 import com.example.work_school.repository.IApiCallback;
@@ -48,6 +50,8 @@ public class AddNewExpenseActivity extends AppCompatActivity {
 
     private String selectCategories;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +64,11 @@ public class AddNewExpenseActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        repository = new ExpenseRepository();
+
         mAuth =FirebaseAuth.getInstance();
+
+
 
         calendar = calendar.getInstance();
 
@@ -103,9 +111,8 @@ public class AddNewExpenseActivity extends AppCompatActivity {
             RadioButton selectedRadioButton = findViewById(selectedId);
             selectedCurrency = selectedRadioButton.getText().toString();
         }
-        Expense expense = new Expense(Integer.parseInt(Amount),selectCategories,selectedCurrency,Remark,mAuth.getCurrentUser().getUid(),convertToDate(Date,Time));
+        Expense expense = new Expense(Integer.parseInt(Amount),selectedCurrency,selectCategories,Remark,mAuth.getCurrentUser().getUid(),convertToDate(Date,Time));
         repository.createExpense(expense, new IApiCallback<Expense>() {
-
 
             @Override
             public void onSuccess(Expense result) {
@@ -117,7 +124,6 @@ public class AddNewExpenseActivity extends AppCompatActivity {
             public void onError(String errorMessage) {
                 hideProgressBar();
                 Toast.makeText(AddNewExpenseActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
-
             }
         });
 
