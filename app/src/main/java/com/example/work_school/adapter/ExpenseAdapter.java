@@ -1,12 +1,15 @@
 package com.example.work_school.adapter;
 
+import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.work_school.databinding.ItemExpenseBinding;
 import com.example.work_school.model.Expense;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ExpenseAdapter extends RecyclerView.Adapter<ExpenseAdapter.ExpenseViewHolder> {
@@ -14,19 +17,63 @@ public class ExpenseAdapter extends RecyclerView.Adapter<ExpenseAdapter.ExpenseV
     private List<Expense> expenses;
 
 
+    public ExpenseAdapter(){
+        this.expenses = new ArrayList<>();
+    }
+
+
     @NonNull
     @Override
-    public ExpenseAdapter.ExpenseViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return null;
+    public ExpenseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
+        ItemExpenseBinding binding = ItemExpenseBinding.inflate(LayoutInflater.from(parent.getContext()),parent,false);
+        return new ExpenseViewHolder(binding);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ExpenseAdapter.ExpenseViewHolder expenseViewHolder, int i) {
-
+    public void onBindViewHolder(@NonNull ExpenseViewHolder holder, int position) {
+        Expense expense = expenses.get(position);
+        holder.binding.showCategory.setText(expense.getCategory());
+        holder.binding.showAmount.setText(expense.getAmount());
+        holder.binding.showCurrency.setText(expense.getCurrency());
+        holder.binding.showRemark.setText(expense.getRemark());
+        holder.binding.showDate.setText(expense.getCreatedDate().toString());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return expenses.size();
+    }
+
+    public void setExpenses(List<Expense> newExpenses){
+        expenses.clear();
+        expenses.addAll(newExpenses);
+        notifyDataSetChanged();
+
+    }
+
+    public void addExpenses(List<Expense> newExpenses){
+        int startPosition = expenses.size();
+        expenses.addAll(newExpenses);
+        notifyItemRangeInserted(startPosition,newExpenses.size());
+    }
+
+    public int getItemId(Expense expense){
+        int position = expenses.indexOf(expense);
+        if (position != -1){
+            return position;
+        }else {
+            return -1;
+        }
+    }
+
+    public class ExpenseViewHolder extends RecyclerView.ViewHolder {
+
+        protected ItemExpenseBinding binding;
+
+        public ExpenseViewHolder(@NonNull ItemExpenseBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
+        }
+
     }
 }
