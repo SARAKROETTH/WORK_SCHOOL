@@ -42,6 +42,10 @@ dependencies {
     implementation ("com.squareup.retrofit2:converter-gson:2.11.0")
     implementation ("com.squareup.okhttp3:logging-interceptor:4.12.0")
     implementation("com.airbnb.android:lottie:6.1.0")
+    
+    val preference_version = "1.2.1"
+    implementation("androidx.preference:preference:$preference_version")
+
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
