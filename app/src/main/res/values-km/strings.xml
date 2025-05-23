@@ -8,8 +8,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!-- Option Item menu  -->
-    <string name="sign_out_item_menu">Sign Out</string>
-    <string name="new_task_item_menu">New Task</string>
+    <string name="sign_out_item_menu">ចាក់ចេញ</string>
+    <string name="new_task_item_menu">ការចំណាយថ្មី</string>
 
     <!--    Preferent String -->
     <string name="language">ភាសា</string>
@@ -21,6 +21,53 @@
     <string name="backup_expense_summary">ចុចដើម្បីរក្សារទុកការចំណាយជា JSON file</string>
     <string name="unsynced_expense">ការចំណាយមិនទាន់ Sync</string>
     <string name="unsynced_expense_summary">ការចំណាយចំនួន %1$d មិនទាន់ Sync</string>
+
+    <!--    String for WelcomeActivity -->
+    <string name="title_welcomeActivity"> សូមស្វាគមន៍ </string>
+    <string name="subtitle_welcomeActivity">Expnese Tracker </string>
+
+    <!--    String For LoginActivity -->
+    <string name="title_loginActivity"> សូមស្វាគមន៍ ការត្រឡប់មកវិញ</string>
+    <string name="email_loginActivity"> អ៊ីមែល </string>
+    <string name="password_loginActivity"> ពាក្យសម្ងាត់ </string>
+    <string name="input_email_loginActivity">បញ្ចូលអ៊ីមែល</string>
+    <string name="input_password_loginActivity">បញ្ចូលពាក្យសម្ងាត់</string>
+    <string name="login_button_loginActivity">Login</string>
+    <string name="subtitle_button_loginActivity">ភ្លេចពាក្យសម្ងាត់</string>
+    <string name="register_button_loginActivity">ចុះឈ្មោះថ្មី</string>
+
+    <!--    String For RegisterActivity-->
+    <string name="title_registerActivity"> បង្កើតអ៊ីមែលថ្មី </string>
+    <string name="email_registerActivity"> អ៊ីមែល</string>
+    <string name="password_registerActivity"> ពាក្យសម្ងាត </string>
+    <string name="confirm_password_registerActivity"> ផ្ទាងផ្ទាត់ពាក្យសម្ងាត់ </string>
+    <string name="input_email_registerActivity">បញ្ចូលអ៊ីមែលថ្មី</string>
+    <string name="input_password_comfirm_registerActivity">បញ្ចូលពាក្យសម្ងាត់ផ្ទាងផ្ទាត់</string>
+    <string name="input_password_registerActivity">បញ្ចូលពាក្យសម្ងាត់ថ្មី</string>
+    <string name="register_button_registerActivity">Login</string>
+    <string name="subtitle_button_registerActivity">មានអ៊ីមែលរូចរាល់</string>
+
+    <!--    String for Add New ExpenseActivity-->
+    <string name="title_AddNewExpenseActivity">Expense Tracker</string>
+    <string name="amount_AddNewExpenseActivity">ចំណាយ</string>
+    <string name="category_AddNewExpenseActivity">ប្រភេទ</string>
+    <string name="remark_AddNewExpenseActivity">ការចំណាំ</string>
+    <string name="date_AddNewExpenseActivity">កាលបរិច្ចេទ</string>
+    <string name="add_expense_button_AddNewExpenseActivity">បញ្ចូលចំណាយ</string>
+    <string name="input_amount_AddNewExpenseActivity">បញ្ចូលចំណាយ</string>
+    <string name="input_remark_AddNewExpenseActivity">បញ្ចូលចំណាំ</string>
+    <string name="input_date_AddNewExpenseActivity"> ជ្រើរើសកាលបរិច្ចេទ</string>
+
+
+    <!--    String for DetailActivity-->
+    <string name="title_DetailActivity">ទន្និន័យ ការចំណាយ</string>
+    <string name="category_DetailActivity">ប្រភេទ</string>
+    <string name="currency_DetailActivity">រូបិយវត្ថុ</string>
+    <string name="amount_DetailActivity">ចំណាយ</string>
+    <string name="date_DetailActivity">កាលបរិចេ្ឆទ</string>
+    <string name="remark_DetailActivity">ចំណាំ</string>
+
+
 
 
 

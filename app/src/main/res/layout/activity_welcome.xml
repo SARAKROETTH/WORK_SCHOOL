@@ -26,7 +26,7 @@
 
         android:layout_marginTop="152dp"
         android:padding="10dp"
-        android:text="Wellcome"
+        android:text="@string/title_welcomeActivity"
         android:textSize="50sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:padding="10dp"
-        android:text="Expense Tracker"
+        android:text="@string/subtitle_welcomeActivity"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

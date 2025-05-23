@@ -59,7 +59,6 @@ public class MainActivity extends BaseActivity {
             return insets;
         });
 
-        LoadFragment(new ExpenseListFragment());
 
         setSupportActionBar(binding.topAppBar);
         getSupportActionBar().setTitle("");
@@ -77,7 +76,12 @@ public class MainActivity extends BaseActivity {
             return true;
         });
 
-
+        // To ensure the selected bottom navigation item is always visible and stay where it was when activity recreated
+        if(savedInstanceState == null){
+            binding.bottomNavigation.setSelectedItemId(R.id.nav_expenseList);
+        }else{
+            binding.bottomNavigation.setSelectedItemId(savedInstanceState.getInt("selectedItemId"));
+        }
 
 
     }
@@ -88,4 +92,5 @@ public class MainActivity extends BaseActivity {
                 .replace(R.id.fragment_container, fragment)
                 .commit();
     }
+
 }

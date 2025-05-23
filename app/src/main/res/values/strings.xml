@@ -8,7 +8,7 @@
 
     <!-- Option Item menu  -->
     <string name="sign_out_item_menu">Sign Out</string>
-    <string name="new_task_item_menu">New Task</string>
+    <string name="new_task_item_menu">New Expense</string>
 
 <!--    Preferent String -->
     <string name="language">Language</string>
@@ -20,6 +20,56 @@
     <string name="backup_expense_summary">Click to backup your expense to a JSON file</string>
     <string name="unsynced_expense">Unsynced Expense</string>
     <string name="unsynced_expense_summary">%1$d expense pending sync</string>
+
+<!--    String for WelcomeActivity -->
+    <string name="title_welcomeActivity"> Wellcome </string>
+    <string name="subtitle_welcomeActivity">Expnese Tracker </string>
+
+<!--    String For LoginActivity -->
+    <string name="title_loginActivity"> Wellcome back </string>
+    <string name="email_loginActivity"> Email </string>
+    <string name="password_loginActivity"> Password </string>
+    <string name="input_email_loginActivity">Enter your email</string>
+    <string name="input_password_loginActivity">Enter your password</string>
+    <string name="login_button_loginActivity">Login</string>
+    <string name="subtitle_button_loginActivity">Forgot Password</string>
+    <string name="register_button_loginActivity">Sign Up</string>
+
+<!--    String For RegisterActivity-->
+    <string name="title_registerActivity"> Create Account </string>
+    <string name="email_registerActivity"> Email </string>
+    <string name="password_registerActivity"> Password </string>
+    <string name="confirm_password_registerActivity"> Confirm Password </string>
+    <string name="input_email_registerActivity">Enter your email</string>
+    <string name="input_password_comfirm_registerActivity">Enter your password</string>
+    <string name="input_password_registerActivity">Enter your password</string>
+    <string name="register_button_registerActivity">Register</string>
+    <string name="subtitle_button_registerActivity">Already have an account?</string>
+
+<!--    String for Add New ExpenseActivity-->
+    <string name="title_AddNewExpenseActivity">Expense Tracker</string>
+    <string name="amount_AddNewExpenseActivity">Amount</string>
+    <string name="category_AddNewExpenseActivity">Category</string>
+    <string name="remark_AddNewExpenseActivity">Remark</string>
+    <string name="date_AddNewExpenseActivity">Date</string>
+    <string name="add_expense_button_AddNewExpenseActivity">Add Expense</string>
+    <string name="input_amount_AddNewExpenseActivity">Amount</string>
+    <string name="input_remark_AddNewExpenseActivity">Remark</string>
+    <string name="input_date_AddNewExpenseActivity"> Choose Date </string>
+
+<!--    String for DetailActivity-->
+    <string name="title_DetailActivity">Detail Expense</string>
+    <string name="category_DetailActivity">Category</string>
+    <string name="currency_DetailActivity">Currency</string>
+    <string name="amount_DetailActivity">Amount</string>
+    <string name="date_DetailActivity">Date</string>
+    <string name="remark_DetailActivity">Remark</string>
+
+
+
+
+
+
 
 
 
