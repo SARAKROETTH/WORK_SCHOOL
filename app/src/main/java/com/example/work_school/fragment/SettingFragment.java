@@ -1,7 +1,5 @@
 package com.example.work_school.fragment;
 
-
-
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -51,6 +49,5 @@ public class SettingFragment extends PreferenceFragmentCompat {
 
 
     }
-
 
 }
