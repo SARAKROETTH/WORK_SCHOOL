@@ -21,6 +21,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.work_school.databinding.ActivityAddNewExpenseBinding;
 import com.example.work_school.fragment.HomeFragment;
+import com.example.work_school.model.Categories;
 import com.example.work_school.model.Expense;
 import com.example.work_school.repository.ExpenseRepository;
 import com.example.work_school.repository.IApiCallback;
@@ -29,13 +30,23 @@ import com.google.android.material.timepicker.MaterialTimePicker;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.Executors;
 import java.util.concurrent.Phaser;
 
 public class AddNewExpenseActivity extends BaseActivity {
 
     private ActivityAddNewExpenseBinding binding ;
+
+
+    List<String> itemList = new ArrayList<>();
+
+
+    private  ArrayAdapter<String> adapter;
+
 
     MaterialDatePicker datePicker;
     MaterialTimePicker timePicker;
@@ -64,17 +75,20 @@ public class AddNewExpenseActivity extends BaseActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        repository = new ExpenseRepository();
 
-        mAuth =FirebaseAuth.getInstance();
+
+        repository = new ExpenseRepository(this);
+
+        mAuth = FirebaseAuth.getInstance();
+
+        LoadAllCategories();
 
 
 
         calendar = calendar.getInstance();
 
-        String[] item = getResources().getStringArray(R.array.item_spiner);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, item);
+         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, itemList);
         binding.CategoryInput.setAdapter(adapter);
 
         binding.CategoryInput.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -89,9 +103,43 @@ public class AddNewExpenseActivity extends BaseActivity {
             }
         });
 
+        binding.imageButton.setOnClickListener(v -> showAddNewCartegory());
+        binding.btnCancel.setOnClickListener(v -> {binding.cardAddNewCartegory.setVisibility(View.GONE);});
+        binding.btnAddCategory.setOnClickListener(v -> CategoriesCreated());
         binding.DateInput.setOnClickListener(v -> showDatePicker());
         binding.imageCalender.setOnClickListener(v -> showTimePicker());
         binding.buttonAddexpense.setOnClickListener(v -> AddExpense());
+
+
+    }
+
+    private void CategoriesCreated() {
+        String itemnew = binding.inputNewCartegory.getText().toString();
+        Categories categories1 = new Categories(itemnew);
+        repository.saveCategoriesLocal(categories1);
+        binding.inputNewCartegory.setText("");
+
+        itemList.add(itemnew);
+        adapter.notifyDataSetChanged();
+        binding.cardAddNewCartegory.setVisibility(View.GONE);
+    }
+
+    private void LoadAllCategories() {
+        Executors.newSingleThreadExecutor().execute(()->{
+            List<Categories> categories = repository.getAllCategoriesLocal();
+            itemList.clear();
+            for (Categories category : categories) {
+                itemList.add(category.getName());
+            }
+            runOnUiThread(() -> {
+                adapter.notifyDataSetChanged();
+            });
+        });
+
+    }
+
+    private void showAddNewCartegory() {
+        binding.cardAddNewCartegory.setVisibility(View.VISIBLE);
 
     }
 

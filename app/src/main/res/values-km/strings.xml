@@ -57,6 +57,11 @@
     <string name="input_amount_AddNewExpenseActivity">បញ្ចូលចំណាយ</string>
     <string name="input_remark_AddNewExpenseActivity">បញ្ចូលចំណាំ</string>
     <string name="input_date_AddNewExpenseActivity"> ជ្រើរើសកាលបរិច្ចេទ</string>
+    <string name="input_newCartegory"> បញ្ចូលប្រភេទថ្មី </string>
+    <string name="title_AddNewCartegory"> បន្ថែម ប្រភេទថ្មី</string>
+    <string name="btn_add_AddNewCartegory"> បន្ថែម</string>
+    <string name="btn_cancel_AddNewCartegory"> មិនយល់ព្រម </string>
+
 
 
     <!--    String for DetailActivity-->

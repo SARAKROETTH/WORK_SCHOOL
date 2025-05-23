@@ -1,7 +1,15 @@
 package com.example.work_school.model;
 
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+import androidx.room.TypeConverter;
+import androidx.room.TypeConverters;
+
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
@@ -11,20 +19,43 @@ import java.util.Date;
 import java.util.TimeZone;
 import java.util.UUID;
 
+
+@Entity(tableName = "expenses")
 public class Expense {
 
+    @SerializedName("id")
+    @ColumnInfo(name = "id")
+    @NonNull
+    @PrimaryKey
     private String id;
+
+    @SerializedName("amount")
+    @ColumnInfo(name = "amount")
     private int amount;
 
+    @ColumnInfo(name = "currency")
+    @SerializedName("currency")
     private String currency;
 
+    @ColumnInfo(name = "is_synced")
+    private boolean isSynced;
+
+    @ColumnInfo(name = "category")
+    @SerializedName("category")
     private String category;
 
+    @ColumnInfo(name = "remark")
+    @SerializedName("remark")
     private String remark;
 
+    @ColumnInfo(name = "createdBy")
+    @SerializedName("createdBy")
     private String createdBy;
 
+    @TypeConverters(DateConverter.class)
     @JsonAdapter(ISO8601DateAdapter.class)
+    @ColumnInfo(name = "createdDate")
+    @SerializedName("createdDate")
     private Date createdDate;
 
    public String getId(){
@@ -46,6 +77,15 @@ public class Expense {
    public String getRemark(){
        return remark;
    }
+
+   public boolean getIsSynced(){
+       return isSynced;
+   }
+
+   public void setIsSynced(boolean isSynced){
+       this.isSynced = isSynced;
+   }
+
 
    public String getCreatedBy(){
        return createdBy;
@@ -112,7 +152,17 @@ public class Expense {
         }
     }
 
+    public static class DateConverter {
+        @TypeConverter
+        public static Date fromTimestamp(Long value) {
+            return value == null ? null : new Date(value);
+        }
 
+        @TypeConverter
+        public static Long dateToTimestamp(Date date) {
+            return date == null ? null : date.getTime();
+        }
+    }
 
 
 }

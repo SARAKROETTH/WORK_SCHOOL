@@ -56,6 +56,11 @@
     <string name="input_amount_AddNewExpenseActivity">Amount</string>
     <string name="input_remark_AddNewExpenseActivity">Remark</string>
     <string name="input_date_AddNewExpenseActivity"> Choose Date </string>
+    <string name="input_newCartegory"> Enter Category </string>
+    <string name="title_AddNewCartegory"> Add New Cartegory</string>
+    <string name="btn_add_AddNewCartegory"> add Cartegory </string>
+    <string name="btn_cancel_AddNewCartegory"> cancel </string>
+
 
 <!--    String for DetailActivity-->
     <string name="title_DetailActivity">Detail Expense</string>
