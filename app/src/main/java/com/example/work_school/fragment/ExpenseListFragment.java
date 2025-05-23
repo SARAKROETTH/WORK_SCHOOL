@@ -78,7 +78,7 @@ public class ExpenseListFragment extends Fragment {
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         binding.itemContainer.setLayoutManager(layoutManager);
-        repository = new ExpenseRepository();
+        repository = new ExpenseRepository(getContext());
         expenseAdapter = new ExpenseAdapter();
         binding.itemContainer.setAdapter(expenseAdapter);
 
